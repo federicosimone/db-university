@@ -1,0 +1,7 @@
+--#1
+SELECT * 
+FROM university.students
+WHERE `date_of_birth` >= '1990-01-01'
+AND `date_of_birth` < '1991-01-01';
+
+--#2
