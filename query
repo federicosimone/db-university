@@ -13,3 +13,9 @@ WHERE `cfu` > '10';
 SELECT * 
 FROM university.students
 WHERE `date_of_birth` <= '1996-03-09'; 
+
+--#4
+SELECT *
+FROM university.courses
+WHERE `period` = 'I semestre' 
+AND `year` = '1';
