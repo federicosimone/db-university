@@ -10,9 +10,9 @@ FROM university.courses
 WHERE `cfu` > '10';
 
 --#3
-SELECT * 
+SELECT id, name, surname, date_of_birth, CURDATE()
 FROM university.students
-WHERE `date_of_birth` <= '1996-03-09'; 
+WHERE date_of_birth <= CURDATE() - INTERVAL 30 YEAR
 
 --#4
 SELECT *
@@ -35,13 +35,13 @@ WHERE `level` = 'magistrale';
 SELECT COUNT(*) FROM `departments`;
 
 --#8
-SELECT COUNT(*) FROM `teachers`
+SELECT COUNT(id) FROM `teachers`
 WHERE `phone` IS NULL;
 
 --BONUS GROUPBY
 
 --#1
-SELECT COUNT(id), YEAR(enrolment_date)
+SELECT COUNT(id), YEAR(enrolment_date) AS anno
 FROM university.students
 GROUP BY YEAR(enrolment_date);
 
@@ -51,7 +51,9 @@ FROM university.teachers
 GROUP BY office_address;
 
 --#3 
-SELECT AVG(vote) FROM university.exam_student;
+SELECT COUNT(exam_id),AVG(vote) 
+FROM university.exam_student
+GROUP BY exam_id;
 
 --#4
 SELECT count(id), department_id
