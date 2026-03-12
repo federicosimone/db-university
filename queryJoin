@@ -1,0 +1,24 @@
+--#1 
+
+SELECT students.name , students.surname , degrees.name
+FROM students
+JOIN degrees
+ON students.degree_id = degrees.id
+ORDER BY students.id;
+
+--2 
+
+SELECT departments.name, degrees.id, degrees.name 
+FROM degrees
+JOIN departments
+ON degrees.department_id = departments.id
+WHERE degrees.level = 'magistrale' ;
+
+--3
+SELECT teachers.id, teachers.name, courses.name 
+FROM university.courses
+JOIN course_teacher
+ON courses.id = course_teacher.course_id
+JOIN teachers
+ON teachers.id = course_teacher.teacher_id
+WHERE teachers.id = '44';
