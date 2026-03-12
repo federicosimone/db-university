@@ -1,0 +1,7 @@
+--#1 
+
+SELECT students.name , students.surname , degrees.name
+FROM students
+JOIN degrees
+ON students.degree_id = degrees.id
+ORDER BY students.id;
